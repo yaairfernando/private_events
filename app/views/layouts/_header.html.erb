@@ -1,9 +1,17 @@
 <header class="bg-primary">
   <nav>
+    <% if logged_in? %>
+      <span class="user-name">
+        <%= current_user.name %>
+      </span>
+    <% end %>
     <ul>
       <%= link_to "Home" , root_path %>
-      <%= link_to "Login" , login_path %>
-      <%= link_to "Logout" , logout_path %>
+      <% if logged_in? %>
+        <%= link_to "Logout" , logout_path %>
+      <% else %>
+        <%= link_to "Login" , login_path %>
+      <% end %>
     </ul>
   </nav>
 </header c>
