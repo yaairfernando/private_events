@@ -81,6 +81,15 @@ header {
         color: #fff;
         padding: 5px 20px;
         font-size: 16px;
+        opacity: 0.7;
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+          text-decoration: none !important;
+          color: #fff !important;
+          cursor: pointer !important;
+          opacity: 1;
+        }
       }
     }
   }
