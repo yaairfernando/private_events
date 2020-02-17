@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  recipient_id: 1
+  description: MyText
+  event: one
+  user: one
+
+two:
+  recipient_id: 1
+  description: MyText
+  event: two
+  user: two
