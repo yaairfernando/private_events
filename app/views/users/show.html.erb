@@ -8,16 +8,18 @@
     </section>
   </aside>
   <div class="col-md-8">
-  I'M WORKING!
-    <%
-=begin%>
- <% if @user.events.any? %>
-      <h3>Events (<%= @user.events.count %>)</h3>
-      <ol class="events">
-        <%= render @events %>
-      </ol>
-    <% end %> 
-<%
-=end%>
+  <% if @user.events.any? %>
+    <h3>Events (<%= @user.events.count %>)</h3>
+    
+    <table class="table table-striped">
+      <tr>
+        <th>Date</th>
+        <th>Location</th>
+        <th>Description</th>
+      </tr>
+      <%= render @user.events %>
+    </table>
+  <% end %> 
+
   </div>
 </div>
