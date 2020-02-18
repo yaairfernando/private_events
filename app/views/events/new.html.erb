@@ -1,7 +1,7 @@
 <%= provide(:title, "New Event") %>
 
 <h1>Create your new event!!!!</h1>
-<%= form_for(:event, url: '/events') do |f| %>
+<%= form_for(@event) do |f| %>
   <div class="form-group" >
     <%= f.label :location %>
     <%= f.text_field :location, class: "form-control" %>

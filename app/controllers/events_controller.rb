@@ -1,6 +1,4 @@
 class EventsController < ApplicationController
-  include SessionsHelper
-  
   def index
     @events = Event.all
     @from_events_controller = true
@@ -11,12 +9,10 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = Event.new(event_params)
-    @event.user_id = current_user.id
-    byebug
-    if event.save
+    @event = current_user.events.build(event_params)
+    if @event.save
       flash[:success] = "You have successfuly created a new event!!!"
-      redirect_to @event
+      redirect_to user_path(current_user)
     else
       render :new
     end
@@ -29,6 +25,4 @@ class EventsController < ApplicationController
   def event_params
     params.require(:event).permit(:location, :date, :time, :description)
   end
-
-
 end

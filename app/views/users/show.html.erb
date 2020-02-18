@@ -10,7 +10,9 @@
   <div class="col-md-8">
   <% if @user.events.any? %>
     <h3>Events (<%= @user.events.count %>)</h3>
-    
+    <% if logged_in? %>
+      <%= link_to "Create a new event", new_event_path %>
+    <% end %>
     <table class="table table-striped">
       <tr>
         <th>Date</th>

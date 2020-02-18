@@ -1,13 +1,15 @@
 
 <h3>Events (<%= @events.count %>)</h3>
-    
-    <table class="table table-striped">
-      <tr>
-        <th>Creator</th>
-        <th>Date</th>
-        <th>Location</th>
-        <th>Description</th>
-        <th>Actions</th>
-      </tr>
-      <%= render @events %>
-    </table>
+<% if logged_in? %>
+  <%= link_to "Create a new event", new_event_path %>
+<% end %>
+<table class="table table-striped">
+  <tr>
+    <th>Creator</th>
+    <th>Date</th>
+    <th>Location</th>
+    <th>Description</th>
+    <th>Actions</th>
+  </tr>
+  <%= render @events %>
+</table>
