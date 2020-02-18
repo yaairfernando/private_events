@@ -1,5 +1,7 @@
 class User < ApplicationRecord
   has_many :invitations, foreign_key: :creator_id
+  # has_many :upcoming_events, through: :invitations, source: :event
+
   has_many :events, through: :invitations, source: :creator
   before_save   :downcase_email
 
