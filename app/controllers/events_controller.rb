@@ -16,13 +16,17 @@ class EventsController < ApplicationController
       flash[:success] = "You have successfuly created a new event!!!"
       redirect_to user_path(current_user)
     else
+      puts "+++++++++++++++++++++++++"
+      puts @event&.errors.full_messages
+      puts current_user.id
+      puts "+++++++++++++++++++++++++"
       render :new
     end
   end
 
   def attend
     @event = Event.find_by(id: params[:id])
-    @invitation = Invitation.new(creator_id: @event.creator_id, attendee_id: current_user.id, event_id: params[:id])
+    @invitation = Invitation.new(attendee_id: current_user.id, event_id: params[:id])
 
     if @invitation.save
       flash[:success] = "You have successfuly attended the event!!!"
@@ -36,7 +40,7 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:date, :description)
+    params.require(:event).permit(:location, :date, :description)
   end
 
   def find_event
