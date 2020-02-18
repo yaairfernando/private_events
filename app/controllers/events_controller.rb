@@ -20,6 +20,18 @@ class EventsController < ApplicationController
     end
   end
 
+  def attend
+    @event = Event.find_by(id: params[:id])
+    @invitation = Invitation.new(creator_id: @event.creator_id, attendee_id: current_user.id, event_id: params[:id])
+
+    if @invitation.save
+      flash[:success] = "You have successfuly attended the event!!!"
+      redirect_to current_user
+    else
+      render event_path(@event)
+    end
+  end
+
   def show
   end
 
