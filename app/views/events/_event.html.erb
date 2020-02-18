@@ -1,3 +1,7 @@
+<% if logged_in? %>
+  <%= link_to "Create a new event", new_event_path %>
+<% end %>
+
 <tr>
   <% if @from_events_controller %>
    <td><%= event.creator.name %></td>
@@ -5,4 +9,11 @@
   <td><%= event.date %></td>
   <td><%= event.location %></td>
   <td><%= event.description %></td>
+  <td>
+    <%= link_to "Show", event_path(event) %>
+    <% if logged_in? && current_user == event.creator.name %>
+      <%= link_to "Delete", event_path(event), method: :delete, data: { confirm: "Are you sure you want to delete this event?"} %>
+      <%= link_to "Edit", event_edit_path(event) %>
+    <% end %>
+  </td>
 </tr>
