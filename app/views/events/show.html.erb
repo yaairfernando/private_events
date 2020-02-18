@@ -1,2 +1,17 @@
-<h1>Events#show</h1>
-<p>Find me in app/views/events/show.html.erb</p>
+<div class="container">
+  <div class="card">
+    <div class="card-body">
+      <h2><%= @event.creator.name %>'s event.</h2>
+      <div class="event-info">
+        <small><strong>Location:</strong><%= @event.location %></small> <br>
+        <small><strong>Date:</strong><%= @event.date %></small><br>
+        <small><strong>Description:</strong><%= @event.description %></small><br>
+      </div>
+      <div class="event-actions">
+        <% if logged_in? && current_user.name != @event.creator.name %>
+          <%= link_to "Attend to this event", "#" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
