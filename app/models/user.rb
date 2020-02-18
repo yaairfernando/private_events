@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   has_many :events, foreign_key: :creator_id
   has_many :invitations, foreign_key: :attendee_id
-  has_many :events_invited, through: :invitations, source: :attendee
+  has_many :events_invited, through: :invitations, source: :event
   
   # has_many :upcoming_events, through: :invitations, source: :event
 

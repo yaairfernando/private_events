@@ -9,7 +9,9 @@
       </div>
       <div class="event-actions">
         <% if logged_in? && current_user.id != @event.creator_id %>
-          <%= link_to "Attend to this eventttt", attend_event_path(@event), {method: :post} %>
+          <% if current_user.events_invited.ids.exclude? @event.id%>
+              <%= link_to "Attend to this eventttt", attend_event_path(@event), {method: :post} %>
+          <% end %>
         <% end %>
       </div>
     </div>

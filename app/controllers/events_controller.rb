@@ -30,6 +30,7 @@ class EventsController < ApplicationController
 
     if @invitation.save
       flash[:success] = "You have successfuly attended the event!!!"
+      byebug
       redirect_to current_user
     else
       render event_path(@event)
