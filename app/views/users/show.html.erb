@@ -29,26 +29,17 @@
         <h5>You have these events in your schedule!!</h5>
         <div class="event-buttons">
           <%= link_to "Upcoming events", {:controller => "users", :action => "show", :coming => false }%>
-          
-          <%= button_to "User", action: "show" do %>
-            Previously attended events
-          <% end %>
+          <%= link_to "Passed Events", {:controller => "users", :action => "show", :passed => false }%>
+          <!-- <%= link_to "Upcomming", user_path(@user), params: { upcomming: true } %> -->
         </div>
-        <%
-=begin%>
- <% if @user.attended_events.any? %>
-          <div>
-            <% @user.attended_events.each do |event| %>
-              <div class="divider"></div>
-              <p><strong>Location: </strong><%= event.location %></p>
-              <p><strong>Date & Time: </strong><%= event.date.strftime('%Y %B %d %I:%M%p') %></p>
-              <p><strong>Description: </strong><%= event.description %></p>
-              <p><strong>Host: </strong><%= event.creator.name %></p>
-            <% end %>
-          </div>
-        <% end %> 
-<%
-=end%>
+        <% if @events.any? %>
+          <% @events.each do |e| %>
+            <%= e.location %>
+            <%= e.date %>
+            <%= e.creator.name %>
+
+          <% end %>
+        <% end %>
       </div>
     </section>
   </aside>

@@ -16,23 +16,9 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    puts "====================="
-    puts params.inspect
-    puts params[:coming].class
-    puts "====================="
-    if params[:coming] == 'true'
-      puts "++++++++++++++++++++++++"
-      puts "++++++++++++++++++++++++"
-      puts "++++++++++++++++++++++++"
-      puts "++++++++++++++++++++++++"
-      @events = @user.upcoming_events
-    elsif params[:coming] == 'false'
-      puts '------------------------'
-      puts '------------------------'
-      puts '------------------------'
-      puts '------------------------'
-      @events = @user.previous_events
-    end 
+    @events = []
+    @events = User.includes(:attended_events, :events, :invitations).find(params[:id]).upcoming_events if params[:coming].present?
+    @events = User.includes(:attended_events, :events, :invitations).find(params[:id]).previous_events if params[:passed].present?
   end
 
   private
