@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   has_many :events, foreign_key: :creator_id
   has_many :invitations, foreign_key: :attendee_id
-  has_many :events_invited, through: :invitations, source: :event
+  has_many :attended_events, through: :invitations, source: :event
   
   # has_many :upcoming_events, through: :invitations, source: :event
 
@@ -18,5 +18,13 @@ class User < ApplicationRecord
   # Converts email to all lower-case.
   def downcase_email
     email.downcase!
+  end
+
+  def upcoming_events
+    self.attended_events.where("date >= ?", DateTime.now)
+  end
+
+  def previous_events
+    self.attended_events.where("date < ?", DateTime.now)
   end
 end

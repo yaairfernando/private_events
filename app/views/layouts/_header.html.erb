@@ -1,12 +1,9 @@
-<header class="bg-primary">
+<header class="header-container">
   <nav>
-    <% if logged_in? %>
-      <span class="user-name">
-        <%= current_user.name %>
-      </span>
-    <% end %>
+    <div class="nav-title">
+      <p>Private Events</p>
+    </div>
     <ul>
-      <%= link_to "Home" , root_path %>
       <%= link_to "Events" , events_path %>
       <% if logged_in? %>
       <%= link_to "My events" , current_user %>

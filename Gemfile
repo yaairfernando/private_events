@@ -24,6 +24,10 @@ gem 'jbuilder', '~> 2.7'
 
 gem 'bootstrap-sass'
 gem 'hirb'
+gem 'jquery-rails'
+gem 'has_scope'
+gem 'date_validator'
+gem 'time_difference'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

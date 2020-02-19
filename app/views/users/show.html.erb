@@ -1,40 +1,55 @@
 <% provide(:title, @user.name) %>
 <div class="row">
-  <aside class="col-md-4">
-    <% if logged_in? %>
-      <%= link_to "Create a new event", new_event_path %>
+  <div class="col-md-7 events-container">
+    <% if logged_in? && @user.id == current_user.id %>
+      <%= link_to "Create a new event", new_event_path, class: "btn btn-primary" %>
     <% end %>
+    <% if @user.events.any? %>
+      <h3>Events (<%= @user.events.count %>)</h3>
+      <table class="table table-striped">
+        <tr>
+          <th>Date</th>
+          <th>Description</th>
+          <th>Actions</th>
+        </tr>
+        <%= render @user.events %>
+      </table>
+    <% else %>
+      <div class="create-event-container">
+        <strong>You have no events!!!</strong>
+      </div>
+    <% end %>
+  </div>
+  <aside class="col-md-5">
     <section class="user_info">
       <h1>
         <%= @user.name %>
       </h1>
       <div>
-        <h3>You have these events in your schedule!!</h3>
-        <% if @user.events_invited.any? %>
+        <h5>You have these events in your schedule!!</h5>
+        <div class="event-buttons">
+          <%= link_to "Upcoming events", {:controller => "users", :action => "show", :coming => false }%>
+          
+          <%= button_to "User", action: "show" do %>
+            Previously attended events
+          <% end %>
+        </div>
+        <%
+=begin%>
+ <% if @user.attended_events.any? %>
           <div>
-            <% @user.events_invited.each do |event| %>
-              <p><%= event.location %></p>
-              <p><%= event.date %></p>
-              <p><%= event.description %></p>
-              <p><%= event.creator.name %></p>
+            <% @user.attended_events.each do |event| %>
+              <div class="divider"></div>
+              <p><strong>Location: </strong><%= event.location %></p>
+              <p><strong>Date & Time: </strong><%= event.date.strftime('%Y %B %d %I:%M%p') %></p>
+              <p><strong>Description: </strong><%= event.description %></p>
+              <p><strong>Host: </strong><%= event.creator.name %></p>
             <% end %>
           </div>
-        <% end %>
+        <% end %> 
+<%
+=end%>
       </div>
     </section>
   </aside>
-  <div class="col-md-8">
-  <% if @user.events.any? %>
-    <h3>Events (<%= @user.events.count %>)</h3>
-    <table class="table table-striped">
-      <tr>
-        <th>Date</th>
-        <th>Description</th>
-        <th>Actions</th>
-      </tr>
-      <%= render @user.events %>
-    </table>
-  <% end %> 
-
-  </div>
 </div>

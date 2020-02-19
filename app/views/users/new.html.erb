@@ -1,11 +1,6 @@
 <% provide(:button_text, 'Sign up') %>
 <%= form_for(@user) do |f| %>
-  <%
-=begin%>
- <%= render 'shared/error_messages', object: f.object %> 
-<%
-=end%>
-
+  <%= render 'shared/errors', obj: @user %>
   <%= f.label :name %>
   <%= f.text_field :name, class: 'form-control' %>
 

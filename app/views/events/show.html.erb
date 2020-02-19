@@ -4,16 +4,27 @@
       <h2><%= @event.creator.name %>'s event.</h2>
       <div class="event-info">
         <small><strong>Location:</strong><%= @event.location %></small> <br>
-        <small><strong>Date:</strong><%= @event.date %></small><br>
+        <small><strong>Date:</strong><%= @event.date.strftime('%Y %B %d %I:%M%p') %></small><br>
         <small><strong>Description:</strong><%= @event.description %></small><br>
       </div>
       <div class="event-actions">
         <% if logged_in? && current_user.id != @event.creator_id %>
-          <% if current_user.events_invited.ids.exclude? @event.id%>
+          <% if current_user.attended_events.ids.exclude? @event.id%>
               <%= link_to "Attend to this eventttt", attend_event_path(@event), {method: :post} %>
           <% end %>
         <% end %>
       </div>
     </div>
   </div>
+
+  <% if @event.attendees.any? %>
+    <h4>Currently attending:</h4>
+    <ul>
+      <% @event.attendees.each do |attendee| %>
+        <li><%= attendee.name %></li>
+      <% end %>
+    </ul>
+  <% else %>
+    <h4>Don't miss this event and be the first one to attend!</h4>
+  <% end %>
 </div>
