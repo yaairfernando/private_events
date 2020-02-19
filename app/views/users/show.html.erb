@@ -1,9 +1,6 @@
 <% provide(:title, @user.name) %>
 <div class="row">
   <aside class="col-md-4">
-    <% if logged_in? %>
-      <%= link_to "Create a new event", new_event_path %>
-    <% end %>
     <section class="user_info">
       <h1>
         <%= @user.name %>
@@ -23,7 +20,10 @@
       </div>
     </section>
   </aside>
-  <div class="col-md-8">
+  <div class="col-md-8 events-container">
+  <% if logged_in? && @user.id == current_user.id %>
+    <%= link_to "Create a new event", new_event_path, class: "btn btn-primary" %>
+  <% end %>
   <% if @user.events.any? %>
     <h3>Events (<%= @user.events.count %>)</h3>
     <table class="table table-striped">
@@ -34,7 +34,10 @@
       </tr>
       <%= render @user.events %>
     </table>
-  <% end %> 
-
+  <% else %>
+    <div class="create-event-container">
+      <strong>You have no events!!!</strong>
+    </div>
+  <% end %>
   </div>
 </div>

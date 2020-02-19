@@ -16,10 +16,6 @@ class EventsController < ApplicationController
       flash[:success] = "You have successfuly created a new event!!!"
       redirect_to user_path(current_user)
     else
-      puts "+++++++++++++++++++++++++"
-      puts @event&.errors.full_messages
-      puts current_user.id
-      puts "+++++++++++++++++++++++++"
       render :new
     end
   end
@@ -30,7 +26,6 @@ class EventsController < ApplicationController
 
     if @invitation.save
       flash[:success] = "You have successfuly attended the event!!!"
-      byebug
       redirect_to current_user
     else
       render event_path(@event)
