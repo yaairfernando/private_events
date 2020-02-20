@@ -10,11 +10,18 @@
 
 <h4 id="passed">Passed Events</h4>
 <div class="divider"></div>
+<div class="pagination-events">
+
+  <%= will_paginate @passed_events, :params_name => 'passed_page' %>
+</div>
 <%= render @passed_events.includes(:creator, :attendees, :invitations) %>
 
 <div id="upcoming"></div>
 <h4>Upcoming Events</h4>
 <div class="divider"></div>
+<div class="pagination-events">
+  <%= will_paginate @coming_events, :param_name => 'upcoming_page' %>
+</div>
 <%= render @coming_events.includes(:creator, :attendees, :invitations) %>
 
 
