@@ -3,7 +3,6 @@ class User < ApplicationRecord
   has_many :invitations, foreign_key: :attendee_id
   has_many :invited_events, through: :invitations, source: :event
   has_many :attended_events, through: :invitations, source: :event
-  # has_many :attended_events, -> { where(attended_events: { "date >= ?", DateTime.now }) }, :through => :invitations, :source => :event
   
   before_save   :downcase_email
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
@@ -20,10 +19,10 @@ class User < ApplicationRecord
   # has_many :upcoming_events, -> { where(attended_events: { "date >= ?", DateTime.now }) }, :through => :invitations, :source => :event
 
   def upcoming_events
-    self.attended_events.where("date >= ?", DateTime.now)
+    self.attended_events.where("date >= ? AND accepted = ?", DateTime.now, true)
   end
 
   def previous_events
-    self.attended_events.where("date < ?", DateTime.now)
+    self.attended_events.where("date < ? AND accepted = ?", DateTime.now, true)
   end
 end

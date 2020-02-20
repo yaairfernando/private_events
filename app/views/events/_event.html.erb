@@ -44,9 +44,11 @@
           <%= link_to "See Details", event_path(event) %>
         <% end %>
         <% if @accepted_button %>
-          <%= link_to "Accept event invitations", attend_event_path(event), class: 'event_button', method: :post %>
+          <%= link_to "Accept event invitation", attend_event_path(event), class: 'event_button', method: :post %>
         <% end%>
-        <% if logged_in? && current_user.id != event.creator_id %>
+        <%
+=begin%>
+ <% if logged_in? && current_user.id != event.creator_id %>
           <% if current_user.attended_events.any?%>
             <% if current_user.attended_events.ids.exclude? event.id%>
               <%= link_to "Attend to this event", attend_event_path(event), class: 'event_button', method: :post %>
@@ -54,7 +56,9 @@
           <% else %>
             <%= link_to "Attend to this event", attend_event_path(event), class: 'event_button', method: :post %>
           <% end %>
-        <% end %>
+        <% end %> 
+<%
+=end%>
       </div>
     </div>
   </div>

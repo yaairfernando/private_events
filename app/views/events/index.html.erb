@@ -12,7 +12,8 @@
 <div class="divider"></div>
 <%= render @passed_events.includes(:creator, :attendees, :invitations) %>
 
-<h4 id="upcoming">Upcoming Events</h4>
+<div id="upcoming"></div>
+<h4>Upcoming Events</h4>
 <div class="divider"></div>
 <%= render @coming_events.includes(:creator, :attendees, :invitations) %>
 
