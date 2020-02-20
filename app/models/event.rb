@@ -8,15 +8,7 @@ class Event < ApplicationRecord
   validates :name, presence: true
   validates :description, presence: true, length: { maximum: 340 }
 
-  def self.upcoming
-    self.where("date >= ?", DateTime.now)
-  end
-
-  def self.past
-    puts '++++++++++++++'
-    puts self.inspect
-    puts '++++++++++++++'
-    self.where("date < ?", DateTime.now)
-  end
+  scope :upcoming, lambda { where('date >= ?', DateTime.now)}
+  scope :past, lambda { where('date < ?', DateTime.now)}
 end
 

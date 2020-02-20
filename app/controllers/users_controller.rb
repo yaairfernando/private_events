@@ -17,8 +17,8 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @events = []
-    @events = User.includes(:attended_events, :events, :invitations).find(params[:id]).previous_events if params[:passed].present?
-    @events = User.includes(:attended_events, :events, :invitations).find(params[:id]).upcoming_events if params[:coming].present?
+    @events = User.find(params[:id]).previous_events if params[:passed].present?
+    @events = User.find(params[:id]).upcoming_events if params[:coming].present?
   end
 
   private

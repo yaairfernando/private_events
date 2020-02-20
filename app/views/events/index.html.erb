@@ -3,13 +3,19 @@
   <h3>Check out the most popular events!!!</h3>
 </div>
 
-<h4>Passed Events</h4>
+<div class="stiky-navigation">
+  <%= link_to "Passed Events", "#passsed" %>
+  <%= link_to "Upcoming Events", "#upcoming" %>
+</div>
+
+<h4 id="passed">Passed Events</h4>
 <div class="divider"></div>
 <%= render @passed_events.includes(:creator, :attendees, :invitations) %>
 
-<h4>Upcoming Events</h4>
+<h4 id="upcoming">Upcoming Events</h4>
 <div class="divider"></div>
 <%= render @coming_events.includes(:creator, :attendees, :invitations) %>
+
 
 
 
