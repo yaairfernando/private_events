@@ -199,7 +199,6 @@ aside {
 .events-container {
   margin: 20px 0;
   padding: 0px 20px;
-  height: 90vh;
   box-shadow: 0 5px 11px 0 rgba(0,0,0,0.18), 0 4px 15px 0 rgba(0,0,0,0.15);
 
   .btn {
@@ -226,6 +225,10 @@ aside {
     align-items: center;
     font-size: 25px;
     border-right: 3px solid #3273C5;
+
+    strong {
+      text-align: center;
+    }
 
     .date-start {
       text-align: center;
@@ -259,6 +262,8 @@ aside {
       justify-content: space-between;
 
       .event-details {
+        margin-bottom: 10px;
+
         p {
           display: flex;
           align-items: center;

@@ -6,14 +6,7 @@
     <% end %>
     <% if @user.events.any? %>
       <h3>Events (<%= @user.events.count %>)</h3>
-      <table class="table table-striped">
-        <tr>
-          <th>Date</th>
-          <th>Description</th>
-          <th>Actions</th>
-        </tr>
-        <%= render @user.events %>
-      </table>
+      <%= render @user.events %>
     <% else %>
       <div class="create-event-container">
         <strong>You have no events!!!</strong>
@@ -28,9 +21,10 @@
       <div>
         <h5>You have these events in your schedule!!</h5>
         <div class="event-buttons">
-          <%= link_to "Upcoming events", {:controller => "users", :action => "show", :coming => false }%>
-          <%= link_to "Passed Events", {:controller => "users", :action => "show", :passed => false }%>
-          <!-- <%= link_to "Upcomming", user_path(@user), params: { upcomming: true } %> -->
+          <%= link_to 'Upcoming events', user_path(@user, params: { coming: 'true' }),
+                method: :get, class: 'btn btn-secundary' %>
+          <%= link_to 'Passed events', user_path(@user, params: { passed: 'true' }),
+                method: :get, class: 'btn btn-secundary' %> 
         </div>
         <% if @events.any? %>
           <% @events.each do |e| %>
