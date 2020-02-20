@@ -1,11 +1,15 @@
 
 <div class="event_header">
-  <h3>Check the most popular events!!!</h3>
+  <h3>Check out the most popular events!!!</h3>
 </div>
-<%= render @events.includes(:creator, :attendees, :invitations) %>
 
-<div class="pagination-events">
-  <%= will_paginate %>
-</div>
+<h4>Passed Events</h4>
+<div class="divider"></div>
+<%= render @passed_events.includes(:creator, :attendees, :invitations) %>
+
+<h4>Upcoming Events</h4>
+<div class="divider"></div>
+<%= render @coming_events.includes(:creator, :attendees, :invitations) %>
+
 
 
