@@ -10,13 +10,27 @@
       <div class="event-actions">
         <% if logged_in? && current_user.id != @event.creator_id %>
           <% if current_user.attended_events.ids.exclude? @event.id%>
-              <%= link_to "Attend to this eventttt", attend_event_path(@event), {method: :post} %>
+              <%= link_to "Attend to this event", attend_event_path(@event), {method: :post} %>
           <% end %>
         <% end %>
       </div>
     </div>
   </div>
+  <% if logged_in? && current_user.id == @event.creator_id %>
+    <div class="invite-users">
+      <%= collection_select(:invitation, :attendee_id, User.all, :id, :name, prompt: true) %>
+    </div>
 
+    <div class="dropdown" style="display:inline-block;">
+      <button id="country-select-btn" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Invite A User
+      <span class="caret"></span></button>
+      <ul class="dropdown-menu">
+          <% User.all.each do |user| %>
+            <%= content_tag(:li, link_to(user.name.titleize, user_path(user_id: user.id), remote: :true)) %>
+          <% end %>
+      </ul>
+    </div>
+  <% end %>
   <% if @event.attendees.any? %>
     <h4>Currently attending:</h4>
     <ul>
@@ -24,7 +38,5 @@
         <li><%= attendee.name %></li>
       <% end %>
     </ul>
-  <% else %>
-    <h4>Don't miss this event and be the first one to attend!</h4>
   <% end %>
 </div>

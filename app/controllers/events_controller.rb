@@ -23,6 +23,10 @@ class EventsController < ApplicationController
     end
   end
 
+  def invite
+    
+  end
+
   def attend
     @event = Event.find_by(id: params[:id])
     @invitation = Invitation.new(attendee_id: current_user.id, event_id: params[:id])
