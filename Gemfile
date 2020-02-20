@@ -28,6 +28,9 @@ gem 'jquery-rails'
 gem 'has_scope'
 gem 'date_validator'
 gem 'time_difference'
+gem "font-awesome-rails"
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

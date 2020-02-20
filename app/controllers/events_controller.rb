@@ -1,8 +1,9 @@
 class EventsController < ApplicationController
   before_action :find_event, only: %i[show]
+  before_action :load_current_user, only: %i[index]
 
   def index
-    @events = Event.all
+    @events = Event.includes(:creator, :attendees, :invitations).paginate(page: params[:page], per_page: 5).order('date DESC')
     @from_events_controller = true
   end
 
@@ -12,7 +13,6 @@ class EventsController < ApplicationController
 
   def create
     @event = current_user.events.build(event_params)
-    @event.date.to_time.iso8601
     if @event.save
       flash[:success] = "You have successfuly created a new event!!!"
       redirect_to user_path(current_user)
@@ -37,10 +37,14 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:location, :date, :description)
+    params.require(:event).permit(:location, :date, :description, :name)
   end
 
   def find_event
     @event = Event.find(params[:id])
+  end
+
+  def load_current_user
+    User.includes(:attended_events, :invitations, :events) if logged_in?
   end
 end

@@ -35,7 +35,7 @@
         <% if @events.any? %>
           <% @events.each do |e| %>
             <%= e.location %>
-            <%= e.date %>
+            <%= e.date.strftime('%Y %B %d %I:%M%p') %>
             <%= e.creator.name %>
 
           <% end %>

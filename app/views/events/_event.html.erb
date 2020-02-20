@@ -1,15 +1,56 @@
-<tr>
-  <% if @from_events_controller %>
-   <td><%= event.creator.name %></td>
-  <% end %>
-  <td><%= event.location %></td>
-  <td><%= event.date %></td>
-  <td><%= event.description %></td>
-  <td>
-    <%= link_to "Show", event_path(event) %>
-    <% if logged_in? && current_user == event.creator.name %>
-      <%= link_to "Delete", event_path(event), method: :delete, data: { confirm: "Are you sure you want to delete this event?"} %>
-      <%= link_to "Edit", event_edit_path(event) %>
+<div class="events">
+  <div class="date-host">
+    <strong><%= event.date.strftime('%Y %b %d %I:%M%p') %></strong>
+    <% if @from_events_controller %>
+      <small><%= event.creator.name %></small>
     <% end %>
-  </td>
-</tr>
+    <div class="date-start">
+      <small>
+        This event will start in:
+      </small>
+      <small>
+        <%= TimeDifference.between(event.date, DateTime.now).humanize %>
+      </small>
+    </div>
+  </div>
+
+  <div class="details-event">
+    <div class="title">
+      <p><%= event.name %></p>
+    </div>
+    <div class="details">
+      <div class="event-details">
+        <p>
+          <%= fa_icon "map-marker" %>
+          <%= event.location %>
+        </p>
+        <p class="description"><%= event.description %></p>
+        <span class="label label-danger"><%= pluralize(event.attendees.count, "person") %> are attenging to this event!</span>
+        <% if logged_in? && current_user.id != event.creator_id %>
+          <% if current_user.attended_events.any?%>
+            <% if current_user.attended_events.ids.include? event.id%>
+              <span class="label label-success">Attending</span>
+            <% end %>
+          <% end %>
+        <% end %>
+        <% if logged_in? && current_user.id == event.creator_id %>
+        <span class="label label-success"><%= event.creator.name %>, you are hosting this event!!</span>
+        <% else %>
+          <span class="label label-primary"><%= event.creator.name %> is the host</span>
+        <% end %>
+      </div>
+      <div class="button-details">
+        <%= link_to "See Details", event_path(event) %>
+        <% if logged_in? && current_user.id != event.creator_id %>
+          <% if current_user.attended_events.any?%>
+            <% if current_user.attended_events.ids.exclude? event.id%>
+              <%= link_to "Attend to this event", attend_event_path(event), class: 'event_button', method: :post %>
+            <% end %>
+          <% else %>
+            <%= link_to "Attend to this event", attend_event_path(event), class: 'event_button', method: :post %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
