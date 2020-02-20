@@ -1,7 +1,9 @@
 class User < ApplicationRecord
   has_many :events, foreign_key: :creator_id
   has_many :invitations, foreign_key: :attendee_id
+  has_many :invited_events, through: :invitations, source: :event
   has_many :attended_events, through: :invitations, source: :event
+  # has_many :attended_events, -> { where(attended_events: { "date >= ?", DateTime.now }) }, :through => :invitations, :source => :event
   
   before_save   :downcase_email
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i

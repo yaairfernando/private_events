@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   get '/logout', to: 'sessions#destroy'
   get '/signup', to: 'users#new'
   # get '/events/:id/attend', to: 'events#attend', as: 'attend_event'
-  post '/events/:id/attend', to: 'events#attend', as: 'attend_event'
+  post '/events/:id/invite', to: 'events#invite', as: 'invite_event'
+  post '/events/:event_id/attend', to: 'events#attend', as: 'attend_event'
+  get '/invited_events', to: 'users#invited_events', as: 'invited_events'
 
   resources :users, only: [:create, :show]
   resources :events, only: [:index, :new, :create, :show]

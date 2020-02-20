@@ -5,8 +5,10 @@
     </div>
     <ul>
       <%= link_to "Events" , events_path %>
+
       <% if logged_in? %>
-      <%= link_to "My events" , current_user %>
+        <%= link_to "My events" , current_user %>
+        <%= link_to "Invitations" , invited_events_path %>
         <%= link_to "Logout" , logout_path %>
       <% else %>
         <%= link_to "Login" , login_path %>

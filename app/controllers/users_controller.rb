@@ -21,6 +21,11 @@ class UsersController < ApplicationController
     @events = User.find(params[:id]).upcoming_events if params[:coming].present?
   end
 
+  def invited_events
+    @invited_events = User.find_by(id: current_user.id).invited_events
+    @accepted_button = true
+  end
+
   private
 
   def user_params

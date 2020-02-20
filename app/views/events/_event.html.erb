@@ -28,7 +28,7 @@
         <span class="label label-danger"><%= pluralize(event.attendees.count, "person") %> are attenging to this event!</span>
         <% if logged_in? && current_user.id != event.creator_id %>
           <% if current_user.attended_events.any?%>
-            <% if current_user.attended_events.ids.include? event.id%>
+            <% if current_user.attended_events.ids.include? event.id && !@accepted_button%>
               <span class="label label-success">Attending</span>
             <% end %>
           <% end %>
@@ -40,7 +40,12 @@
         <% end %>
       </div>
       <div class="button-details">
-        <%= link_to "See Details", event_path(event) %>
+        <% unless @accepted_button %>
+          <%= link_to "See Details", event_path(event) %>
+        <% end %>
+        <% if @accepted_button %>
+          <%= link_to "Accept event invitations", attend_event_path(event), class: 'event_button', method: :post %>
+        <% end%>
         <% if logged_in? && current_user.id != event.creator_id %>
           <% if current_user.attended_events.any?%>
             <% if current_user.attended_events.ids.exclude? event.id%>
