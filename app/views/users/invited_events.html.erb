@@ -1,6 +1,13 @@
-<br/>
-<% if @invited_events.any? %>
-  <%= render @invited_events %>
-<% else %>
-  <p>You do not have any invitations!!</p>
-<% end %>
+<div class="container">
+  <br/>
+  <% if @invited_events.any? %>
+    <%= render @invited_events %>
+  <% else %>
+    <div class="alert alert-info alert-dismissible show' role="alert">
+      <button type="button" id="close" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <p>You don't have invitations!!</p>
+    </div>
+  <% end %>
+</div>

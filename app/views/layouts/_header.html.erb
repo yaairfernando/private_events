@@ -8,7 +8,12 @@
 
       <% if logged_in? %>
         <%= link_to "My events" , current_user %>
-        <%= link_to "Invitations" , invited_events_path %>
+        <%= link_to invited_events_path, class: "invites-event" do %>
+          <%= fa_stacked_icon "dallar", base: "square-o", text: "Invites" %>
+          <% if current_user.invitations.where(accepted: false).any? %>
+            <span class="span-event"><%= current_user.invitations.where(accepted: false).count %></span>
+          <% end %> 
+        <% end %>>
         <%= link_to "Logout" , logout_path %>
       <% else %>
         <%= link_to "Login" , login_path %>
