@@ -16,22 +16,27 @@
       <span class="label label-success"><%= @event.date.strftime('%Y %B %d %I:%M%p') %></span>
     </div>
   </div>
+  <span class="label label-success">You have <%= @event.invitations.where(accepted: false).count %> invitations pending... </span>
+  <br>
+  <br>
   <% if logged_in? && current_user.id == @event.creator_id %>
     <div class="dropdown" style="display:inline-block;">
-      <button id="country-select-btn" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Invite A User
-      <span class="caret"></span></button>
-      <ul class="dropdown-menu">
-          <% User.where('id != ?', current_user.id).each do |user| %>
-            <%= content_tag(:li, link_to(user.name, invite_event_path(id: @event.id, params: { user_id: user.id }), method: :get)) %>
-          <% end %>
-      </ul>
+      <% if User.where.not(id: [current_user.id] + Invitation.all.where(event_id: @event.id).pluck(:attendee_id)).count != 0%>
+        <button id="country-select-btn" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Invite A User
+          <span class="caret"></span></button>
+          <ul class="dropdown-menu">
+            <% User.where.not(id: [current_user.id] + Invitation.all.where(event_id: @event.id).pluck(:attendee_id)).each do |user| %>
+              <%= content_tag(:li, link_to(user.name, invite_event_path(id: @event.id, params: { user_id: user.id }), method: :get)) %>
+            <% end %>
+          </ul>
+      <% end %>
     </div>
   <% end %>
-  <% if @event.attendees.any? %>
+  <% if @event.invitations.where(accepted: true).any? %>
     <h4>Currently attending:</h4>
     <ul>
-      <% @event.attendees.each do |attendee| %>
-        <li><%= attendee.name %></li>
+      <% @event.invitations.where(accepted: true).each do |attendee| %>
+        <li><%= attendee.attendee.name %></li>
       <% end %>
     </ul>
   <% end %>
