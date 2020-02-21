@@ -25,7 +25,7 @@
           <%= event.location %>
         </p>
         <p class="description"><%= event.description %></p>
-        <span class="label label-danger"><%= pluralize(event.attendees.count, "person") %> are attenging to this event!</span>
+        <span class="label label-danger"><%= pluralize(event.invitations.where(accepted: true).count, "person") %> are attending to this event!</span>
         <% if logged_in? && current_user.id != event.creator_id %>
           <% if current_user.attended_events.any?%>
             <% if current_user.attended_events.ids.include? event.id && !@accepted_button%>

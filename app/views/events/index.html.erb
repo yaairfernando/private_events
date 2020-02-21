@@ -13,7 +13,7 @@
   <div class="divider"></div>
   <div class="pagination-events">
   
-    <%= will_paginate @passed_events, :params_name => 'passed_page' %>
+    <%= will_paginate @passed_events, :param_name => 'passed_page' %>
   </div>
   <%= render @passed_events.includes(:creator, :attendees, :invitations) %>
   
