@@ -6,8 +6,6 @@ Rails.application.routes.draw do
   get '/signup', to: 'users#new'
   get '/events/:id/attend', to: 'events#attend', as: 'attend_event'
   get '/events/:id/invite', to: 'events#invite', as: 'invite_event'
-  # post '/events/:id/invite', to: 'events#invite', as: 'invite_event'
-  # post '/events/:event_id/attend', to: 'events#attend', as: 'attend_event'
   get '/users/invitations', to: 'users#invited_events', as: 'invited_events'
 
   resources :users, only: [:create, :show]
