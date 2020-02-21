@@ -3,16 +3,29 @@
     <div class="nav-title">
       <p>Private Events</p>
     </div>
+    <div class="separator"></div>
     <ul>
       <%= link_to "Events" , events_path %>
 
       <% if logged_in? %>
         <%= link_to "My events" , current_user %>
         <%= link_to invited_events_path, class: "invites-event" do %>
-          <%= fa_stacked_icon "dallar", base: "square-o", text: "Invites" %>
+          <span class="fa-stack">
+            <i class="fa fa-square-o fa-stack-2x"></i>
+            <i class="fa fa-dallar fa-stack-1x"><%= current_user.invitations.where(accepted: false).count %></i>
+          </span>Invites
+          <%
+=begin%>
+ <%= fa_stacked_icon "dallar", base: "square-o", text: "Invites" %> 
+<%
+=end%>
+          <%
+=begin%>
+ <span class="span-event"><%= current_user.invitations.where(accepted: false).count %></span>
           <% if current_user.invitations.where(accepted: false).any? %>
-            <span class="span-event"><%= current_user.invitations.where(accepted: false).count %></span>
-          <% end %> 
+          <% end %>  
+<%
+=end%>
         <% end %>>
         <%= link_to "Logout" , logout_path %>
       <% else %>
@@ -20,5 +33,10 @@
         <%= link_to "SignUp" , signup_path %>
       <% end %>
     </ul>
+    <p class="user-name">
+      <% if current_user %>
+        <%= current_user.name %>
+      <% end %>
+    </p>
   </nav>
 </header>

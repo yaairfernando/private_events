@@ -68,27 +68,45 @@ textarea {
 /* header */
 
 header {
+  display: flex;
   background-color: black;
   height: 80px;
   font-family: 'Raleway', sans-serif;
 
+  .user-name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10.9%;
+    height: 100%;
+    margin-bottom: 10px;
+    font-size: 1.6em;
+    font-weight: 600;
+    line-height: 1.7em;
+    color: #ffffff;
+  }
+
+  .separator {
+    flex-grow: 1;
+  }
+
+  .fa-dallar {
+    top: 50%;
+    transform: translateY(-55%);
+  }
+
   nav {
     display: flex;
-    width: 75%;
-    margin: 0 auto;
+    width: 87.5%;
+    margin-left: 12.5%;
     align-items: center;
-    justify-content: space-between;
+    // justify-content: space-between;
     height: 100%;
 
     .nav-title {
       color: #fff;
       font-size: 18px;
       font-weight: 500;
-    }
-
-    .user-name {
-      margin-left: 20px;
-      font-size: large;
     }
 
     ul {
