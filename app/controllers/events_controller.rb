@@ -25,11 +25,11 @@ class EventsController < ApplicationController
   def invite
     @event = Event.find_by(id: params[:id])
     @invitation = Invitation.new(attendee_id: params[:user_id], event_id: params[:id])
-
+    
     if @invitation.save
       # byebug
       flash[:success] = "You have successfuly invited a new guest to your event!!!"
-      redirect_to current_user
+      redirect_to event_path(@event)
     else
       flash[:danger] = "There was an error trying to add a new guest to your event!!!"
       render event_path(@event)
@@ -37,10 +37,10 @@ class EventsController < ApplicationController
   end
 
   def attend
-    @invitation = Invitation.find_by(attendee_id: current_user.id, event_id: params[:event_id])
+    @invitation = Invitation.find_by(attendee_id: current_user.id, event_id: params[:id])
     if @invitation.update(:accepted => true)
       flash[:success] = "You have successfuly accepted the invitation to this event!!!"
-      redirect_to current_user
+      redirect_to invited_events_path
     else
       render event_path(@event)
     end

@@ -44,7 +44,7 @@
           <%= link_to "See Details", event_path(event) %>
         <% end %>
         <% if @accepted_button %>
-          <%= link_to "Accept event invitation", attend_event_path(event), class: 'event_button', method: :post %>
+          <%= link_to "Accept event invitation", attend_event_path(event), class: 'event_button', method: :get %>
         <% end%>
         <%
 =begin%>
