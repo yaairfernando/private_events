@@ -22,7 +22,7 @@
       <span class="caret"></span></button>
       <ul class="dropdown-menu">
           <% User.where('id != ?', current_user.id).each do |user| %>
-            <%= content_tag(:li, link_to(user.name, invited_events_path(id: @event.id, params: { user_id: user.id }), remote: :true, method: :post)) %>
+            <%= content_tag(:li, link_to(user.name, invite_event_path(id: @event.id, params: { user_id: user.id }), method: :get)) %>
           <% end %>
       </ul>
     </div>
