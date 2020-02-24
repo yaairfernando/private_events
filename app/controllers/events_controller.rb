@@ -38,6 +38,7 @@ class EventsController < ApplicationController
 
   def attend
     @invitation = Invitation.find_by(attendee_id: current_user.id, event_id: params[:id])
+
     if @invitation.update(:accepted => true)
       flash[:success] = "You have successfuly accepted the invitation to this event!!!"
       redirect_to invited_events_path
@@ -48,6 +49,8 @@ class EventsController < ApplicationController
 
   def show
   end
+
+  private
 
   def event_params
     params.require(:event).permit(:location, :date, :description, :name)

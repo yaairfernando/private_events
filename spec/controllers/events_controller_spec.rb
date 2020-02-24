@@ -80,43 +80,57 @@ RSpec.describe EventsController, type: :controller do
     expect(response).to redirect_to(event_path(event))
   end
 
-  # it 'newly created user gets logged in' do
-  #   expect(logged_in?).to be(false)
-  #   post :create, params: { user: { name: 'Example',
-  #     email: "example@example.com" } }
-  #   expect(logged_in?).to be(true)
-  #   user = User.last
-  #   user.destroy
-  # end
+  it 'return a 200 status code after accepting the invitation to an event' do
+    yair = users(:yair)
+    attendee = users(:jaak)
+    # log_in attendee
+    # p current_user.id
+    # p current_user.name
+    # assert logged_in?
+    Event.create(name: 'The best moment', location: "Wonderland", 
+          description: "Spend wonderful time with Alice!",
+          date: DateTime.now,
+          creator_id: yair.id )
+    # post :create, params: { event: {
+    #       name: 'The best moment',
+    #       location: "Wonderland", 
+    #   description: "Spend wonderful time with Alice!",
+    #           date: DateTime.now,
+    #     creator_id: attendee.id 
+    # }}
+    my_event = Event.last
+    get :invite, params: { id: my_event.id, user_id: attendee.id }
+    # log_out
 
-  # it 'create action redirects to a new user page with valid credentials' do
-  #   post :create, params: { user: { name: 'Example',
-  #     email: "example@example.com" } }
-  #   user = User.last
-  #   expect(response).to redirect_to(user)
-  #   expect(flash.present?).to be(true)
-  #   user.destroy
-  # end
+    # expect(logged_in?).to be(false)
+    # expect(current_user).to be(nil)
+    log_in attendee
+    assert logged_in?
+    
+    expect(current_user.name).to eq(attendee.name)
+    expect(current_user.id).to eq(attendee.id)
+    get :attend, params: { id: my_event.id}
+    expect(response.status).to be(302)
+    expect(flash[:success]).to be_present
+    expect(response).to redirect_to invited_events_path
 
-  # it 'create action renders a new template with invalid credentials' do
-  #   post :create, params: { user: { name: '',
-  #     email: "example@example.com" } }
-  #   expect(response).to render_template('users/new')
-  #   expect(flash.present?).to be(false)
-  # end
+  end
 
-  # it 'render the show template' do
-  #   user = users(:yair)
-  #   get :show, params: { id: user.id }
-  #   expect(response).to render_template :show
-  #   user.destroy
-  # end
+  it 'renders the show action' do
+    yair = users(:yair)
+    jaak = users(:jaak)
+    log_in yair
+    post :create, params: { event: {
+      name: 'Interview',
+          location: "Wonderland", 
+      description: "Spend wonderful time with Alice!",
+              date: DateTime.now,
+        creator_id: jaak.id 
+    }}
+    event = Event.last
+    get :show, params: { id: event.id}
+    expect(response.status).to eq(200)
+    expect(response).to render_template :show
+  end
   
-  # it 'render the invited events template' do
-  #   post :create, params: { user: { name: 'Example',
-  #     email: "example@example.com" } }
-  #   expect(logged_in?).to be(true)
-  #   get :invited_events
-  #   expect(response).to render_template :invited_events
-  # end
 end

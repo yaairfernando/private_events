@@ -49,6 +49,18 @@ RSpec.configure do |config|
     !session[:user_id].nil?
   end
 
+  def log_out
+    session.delete(:user_id)
+    @current_user = nil
+  end
+
+  def current_user
+    if (user_id = session[:user_id])
+      @current_user ||= User.find_by(id: user_id)
+    end
+    @current_user
+  end
+
   # RSpec Rails can automatically mix in different behaviours to your tests
   # based on their file location, for example enabling you to call `get` and
   # `post` in specs under `spec/controllers`.
