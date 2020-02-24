@@ -3,7 +3,8 @@
 require 'rails_helper'
 
 RSpec.describe UsersController, type: :controller do
-  # fixtures :users
+  fixtures :users
+  fixtures :events
 
   # before(:each) do
   #   @user = users(:yair)
@@ -22,7 +23,7 @@ RSpec.describe UsersController, type: :controller do
     expect(logged_in?).to be(false)
     post :create, params: { user: { name: 'Example',
       email: "example@example.com" } }
-    expect(logged_in?).to be(true)  
+    expect(logged_in?).to be(true)
     user = User.last
     user.destroy
   end
@@ -41,5 +42,20 @@ RSpec.describe UsersController, type: :controller do
       email: "example@example.com" } }
     expect(response).to render_template('users/new')
     expect(flash.present?).to be(false)
+  end
+
+  it 'render the show template' do
+    user = users(:yair)
+    get :show, params: { id: user.id }
+    expect(response).to render_template :show
+    user.destroy
+  end
+  
+  it 'render the invited events template' do
+    post :create, params: { user: { name: 'Example',
+      email: "example@example.com" } }
+    expect(logged_in?).to be(true)
+    get :invited_events
+    expect(response).to render_template :invited_events
   end
 end
