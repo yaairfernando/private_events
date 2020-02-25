@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class SessionsController < ApplicationController
   # include SessionHelper
 
@@ -9,17 +11,17 @@ class SessionsController < ApplicationController
     @user = User.find_by(email: params[:session][:email])
     if @user
       log_in @user
-      flash[:success] = "Thanks for logging in to the Events site!!"
+      flash[:success] = 'Thanks for logging in to the Events site!!'
       redirect_to @user
     else
-      flash.now[:danger] = "Check your email!"
+      flash.now[:danger] = 'Check your email!'
       render 'new'
     end
   end
 
   def destroy
     log_out if logged_in?
-    flash[:info] = "You have logged out!!"
+    flash[:info] = 'You have logged out!!'
     redirect_to login_path
   end
 end

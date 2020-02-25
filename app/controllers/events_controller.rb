@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class EventsController < ApplicationController
   before_action :find_event, only: %i[show]
   before_action :load_current_user, only: %i[index]
@@ -15,7 +17,7 @@ class EventsController < ApplicationController
   def create
     @event = current_user.events.build(event_params)
     if @event.save
-      flash[:success] = "You have successfuly created a new event!!!"
+      flash[:success] = 'You have successfuly created a new event!!!'
       redirect_to user_path(current_user)
     else
       render :new
@@ -28,27 +30,26 @@ class EventsController < ApplicationController
 
     if @invitation.save
       # byebug
-      flash[:success] = "You have successfuly invited a new guest to your event!!!"
-      redirect_to event_path(@event)
+      flash[:success] = 'You have successfuly invited a new guest to your event!!!'
     else
-      flash[:danger] = "There was an error trying to add a new guest to your event!!!"
-      redirect_to event_path(@event)
+      flash[:danger] = 'There was an error trying to add a new guest to your event!!!'
     end
+
+    redirect_to event_path(@event)
   end
 
   def attend
     @invitation = Invitation.find_by(attendee_id: current_user.id, event_id: params[:id])
 
-    if @invitation.update(:accepted => true)
-      flash[:success] = "You have successfuly accepted the invitation to this event!!!"
+    if @invitation.update(accepted: true)
+      flash[:success] = 'You have successfuly accepted the invitation to this event!!!'
       redirect_to invited_events_path
     else
       render event_path(@event)
     end
   end
 
-  def show
-  end
+  def show; end
 
   private
 

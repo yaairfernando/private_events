@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-RSpec.describe "User Model", type: :model do 
+RSpec.describe 'User Model', type: :model do
   fixtures :users
 
   before(:each) do
@@ -11,7 +13,7 @@ RSpec.describe "User Model", type: :model do
     @user.destroy
   end
 
-  describe "User validations" do
+  describe 'User validations' do
     it 'is valid with valid attributes' do
       expect(@user.valid?).to be(true)
     end
@@ -32,7 +34,7 @@ RSpec.describe "User Model", type: :model do
     end
 
     it 'is not valid with too long email' do
-      @user.email = 'a' * 255 + "@gmail.com"
+      @user.email = 'a' * 255 + '@gmail.com'
       expect(@user.valid?).to be(false)
     end
   end
