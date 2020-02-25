@@ -38,10 +38,10 @@
 
 ## About The Project
 
-![Screenshot Image](app/assets/images/login.jpg) 
-![Screenshot Image](app/assets/images/logout.jpg) 
-![Screenshot Image](app/assets/images/invites.jpg) 
-![Screenshot Image](app/assets/images/events.jpg) 
+![Screenshot Image](app/assets/images/login.png) 
+![Screenshot Image](app/assets/images/logout.png) 
+![Screenshot Image](app/assets/images/invites.png) 
+![Screenshot Image](app/assets/images/events.png) 
 
 ### Built With
 The project was developed using the following technologies:
