@@ -13,6 +13,7 @@
 
   <p align="center">
     Ruby on Rails project that implements a clone of Event Brite
+    <br />
     <a href="https://github.com/YairFernando67/private_events"><strong>Explore the docs »</strong></a>
     <br />
     <br />
@@ -38,10 +39,10 @@
 
 ## About The Project
 
-![Screenshot Image](app/assets/images/login.jpg) 
-![Screenshot Image](app/assets/images/logout.jpg) 
-![Screenshot Image](app/assets/images/invites.jpg) 
-![Screenshot Image](app/assets/images/events.jpg) 
+![Screenshot Image](app/assets/images/login.png) 
+![Screenshot Image](app/assets/images/logout.png) 
+![Screenshot Image](app/assets/images/invites.png) 
+![Screenshot Image](app/assets/images/events.png) 
 
 ### Built With
 The project was developed using the following technologies:
@@ -127,7 +128,7 @@ Open your browser on [http://localhost:3000](http://localhost:3000)
 
 <a href="https://yairfernando67.github.io/Portfolio/" target="_blank">
     
-  ![Screenshot Image](app/assets/images/logo.jpg) 
+  ![Screenshot Image](app/assets/images/yair-profile.png) 
 
 </a>
 
@@ -141,7 +142,7 @@ Open your browser on [http://localhost:3000](http://localhost:3000)
 
 <a href="https://github.com/Jaakal" target="_blank">
     
-  ![Screenshot Image](app/assets/images/profile.png) 
+  ![Screenshot Image](app/assets/images/jaak-profile.png) 
 
 </a>
 
