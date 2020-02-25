@@ -9,7 +9,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
- <h2 align="center">Private Events Application</h2>
+ <h2 align="center">Private Events Application.</h2>
 
   <p align="center">
     Ruby on Rails project that implements a clone of Event Brite
