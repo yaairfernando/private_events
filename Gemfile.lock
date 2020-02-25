@@ -250,7 +250,7 @@ DEPENDENCIES
   bootstrap-sass
   bootstrap-will_paginate
   byebug
-  capybara (>= 2.15)
+  capybara
   database_cleaner
   date_validator
   font-awesome-rails
