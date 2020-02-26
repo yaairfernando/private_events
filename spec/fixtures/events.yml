@@ -1,0 +1,7 @@
+my_event:
+  name: Assembly
+  description: This is my event for you guys.
+  location: Madrid, Spain
+  date: 01/02/2020 12:30PM
+  creator_id: 1
+

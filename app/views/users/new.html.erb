@@ -1,0 +1,16 @@
+<% provide(:button_text, 'Sign up') %>
+
+<div class="form-signup-container">
+  <%= form_for(@user) do |f| %>
+    <%= render 'shared/errors', obj: @user %>
+    <h2>Sign In to Private Events</h2>
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control' %>
+  
+    <%= f.label :email %>
+    <%= f.email_field :email, class: 'form-control' %>
+  
+    <%= f.submit yield(:button_text) %>
+  <% end %>
+
+</div>
