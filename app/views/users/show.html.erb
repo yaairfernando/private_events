@@ -27,11 +27,11 @@
         <div>
           <h5>You have these events in your schedule!!</h5>
           <div class="event-buttons" id='<% @user.id %>'>
-            <%= link_to 'Upcoming events', user_path(@user, params: { coming: 'true' }), class: "comming_request", id: @user.id, :remote => true %>
-            <%= link_to 'Passed events', user_path(@user, params: { passed: 'true' }), class: "passed_request", id: @user.id, :remote => true %>
+            <%= link_to 'Upcoming events', user_path(@user, params: { coming: 'true' }), class: "comming_request", :remote => true %>
+            <%= link_to 'Passed events', user_path(@user, params: { passed: 'true' }), class: "passed_request", :remote => true %>
           </div>
           <div class="content_custom_event">
-          render partial format json obj: event
+        
           </div>
         </div>
       </section>

@@ -29,15 +29,9 @@ class UsersController < ApplicationController
           render :json => {:success => true, :html => (render_to_string("_events", :formats => [:html], :layout => false, :locals => {:events => @events})), data: @events}
         end
       end
-      # format.json { render :json => {:success => true, :html => (render_to_string("_events", :formats => [:html], :layout => false, :locals => {:events => @events}))} }
-      
-      # format.json { render :json => {:success => true, :html => (render_to_string partial: 'users/events')} }
-      # format.json { render :json => {:success => true, :html => (render_to_string partial: 'instruments')} }
-        # format.json { render :json => {:success => true, :html => (
-        #   render_to_string(:partial => "users/_events.html.erb", :formats => [:html], :layout => false, :locals => {:events => @events}))}}
-      format.html {  }
+ 
+      format.html {   }
     end
-    # byebug
   end
 
   def invited_events

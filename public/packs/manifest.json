@@ -12,10 +12,10 @@
     },
     "eventsasync": {
       "js": [
-        "/packs/js/eventsasync-00d10be71e5443d7aa51.js"
+        "/packs/js/eventsasync-0b2c9d434c63b92de2d6.js"
       ],
       "js.map": [
-        "/packs/js/eventsasync-00d10be71e5443d7aa51.js.map"
+        "/packs/js/eventsasync-0b2c9d434c63b92de2d6.js.map"
       ]
     },
     "hello": {
@@ -43,8 +43,8 @@
       ]
     }
   },
-  "eventsasync.js": "/packs/js/eventsasync-00d10be71e5443d7aa51.js",
-  "eventsasync.js.map": "/packs/js/eventsasync-00d10be71e5443d7aa51.js.map",
+  "eventsasync.js": "/packs/js/eventsasync-0b2c9d434c63b92de2d6.js",
+  "eventsasync.js.map": "/packs/js/eventsasync-0b2c9d434c63b92de2d6.js.map",
   "hello.js": "/packs/js/hello-9c2edbf56cbd7b6ac948.js",
   "hello.js.map": "/packs/js/hello-9c2edbf56cbd7b6ac948.js.map",
   "script.js": "/packs/js/script-93975912ed318bb49f64.js",

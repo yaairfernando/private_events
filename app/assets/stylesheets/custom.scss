@@ -504,6 +504,17 @@ aside {
   }
 }
 
+// MAIN EVENTS
+.main_event {
+  #passedEvents,
+  #upcomingEvents {
+    padding-top: 30px;
+    h4 {
+      margin-top: 20px;
+    }
+  }
+}
+
 //SHOW EVENT
 
 .show_event {

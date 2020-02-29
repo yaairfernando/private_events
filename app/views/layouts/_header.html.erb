@@ -1,3 +1,4 @@
+
 <header class="header-container">
   <nav>
     <div class="nav-title">
@@ -8,7 +9,7 @@
       <%= link_to "Events" , events_path %>
 
       <% if logged_in? %>
-        <%= link_to "My events" , current_user %>
+        <%= link_to "My events" , current_user, params: { coming: 'true' }, class: "comming_request"%>
         <%= link_to invited_events_path, class: "invites-event" do %>
           <span class="fa-stack">
             <i class="fa fa-square-o fa-stack-2x"></i>
