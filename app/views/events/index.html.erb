@@ -11,6 +11,15 @@
   </div>
   
   <div class="main_event">
+    <div id="upcomingEvents">
+      <h4>Upcoming Events</h4>
+      <div class="divider"></div>
+      <div class="pagination-events">
+        <%= will_paginate @coming_events, :param_name => 'upcoming_page' %>
+      </div>
+      <%= render @coming_events.includes(:creator, :attendees, :invitations) %>
+    </div>
+    
     <div id="passedEvents">
       <h4>Passed Events</h4>
       <div class="divider"></div>
@@ -20,14 +29,6 @@
       <%= render @passed_events.includes(:creator, :attendees, :invitations) %>
     </div>
     
-    <div id="upcomingEvents">
-      <h4>Upcoming Events</h4>
-      <div class="divider"></div>
-      <div class="pagination-events">
-        <%= will_paginate @coming_events, :param_name => 'upcoming_page' %>
-      </div>
-      <%= render @coming_events.includes(:creator, :attendees, :invitations) %>
-    </div>
   </div>
 </div>  
 

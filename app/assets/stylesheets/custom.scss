@@ -536,6 +536,20 @@ aside {
   }
 }
 
+.people-attending-container {
+  display: block;
+  padding: 10px 0;
+
+  h4 {
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+
+  span {
+    margin: 3px;
+  }
+}
+
 /* forms */
 
 input, textarea, select, .uneditable-input {

@@ -5,12 +5,18 @@
       <small><%= event.creator.name %></small>
     <% end %>
     <div class="date-start">
+      <% if event.date > DateTime.now %>
       <small>
         This event will start in:
       </small>
       <small>
-        <%= TimeDifference.between(event.date, DateTime.now).humanize %>
+        <span class="label label-info"> <%= TimeDifference.between(event.date, DateTime.now).humanize %></span>
       </small>
+      <% else %>
+        <small>
+          <span class="label label-danger">Passed Event!</span>
+        </small>
+      <% end %>
     </div>
   </div>
 
@@ -46,19 +52,6 @@
         <% if @accepted_button %>
           <%= link_to "Accept event invitation", attend_event_path(event), class: 'event_button', method: :get %>
         <% end%>
-        <%
-=begin%>
- <% if logged_in? && current_user.id != event.creator_id %>
-          <% if current_user.attended_events.any?%>
-            <% if current_user.attended_events.ids.exclude? event.id%>
-              <%= link_to "Attend to this event", attend_event_path(event), class: 'event_button', method: :post %>
-            <% end %>
-          <% else %>
-            <%= link_to "Attend to this event", attend_event_path(event), class: 'event_button', method: :post %>
-          <% end %>
-        <% end %> 
-<%
-=end%>
       </div>
     </div>
   </div>
