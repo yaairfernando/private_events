@@ -1,15 +1,17 @@
-<div class="container">
+<%= javascript_pack_tag 'script' %>
 
+<div class="container">
   <div class="event_header">
     <h3>Check out the most popular events!!!</h3>
   </div>
   
   <div class="stiky-navigation">
-    <%= link_to "Passed Events", "#passsed" %>
-    <%= link_to "Upcoming Events", "#upcoming" %>
+    <%= link_to "Passed Events", "#", id: "passed"%>
+    <%= link_to "Upcoming Events", "#", id: "up_coming"%>
   </div>
   
-  <h4 id="passed">Passed Events</h4>
+  
+  <h4 id="passedEvents">Passed Events</h4>
   <div class="divider"></div>
   <div class="pagination-events">
   
@@ -17,7 +19,7 @@
   </div>
   <%= render @passed_events.includes(:creator, :attendees, :invitations) %>
   
-  <div id="upcoming"></div>
+  <div id="upcomingEvents"></div>
   <h4>Upcoming Events</h4>
   <div class="divider"></div>
   <div class="pagination-events">
@@ -26,6 +28,4 @@
   <%= render @coming_events.includes(:creator, :attendees, :invitations) %>
 
 </div>  
-
-
 

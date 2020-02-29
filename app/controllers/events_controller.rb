@@ -5,8 +5,8 @@ class EventsController < ApplicationController
   before_action :load_current_user, only: %i[index]
 
   def index
-    @passed_events = Event.all.past.paginate(page: params[:passed_page], per_page: 2).order('date DESC')
-    @coming_events = Event.all.upcoming.paginate(page: params[:upcoming_page], per_page: 3).order('date DESC')
+    @passed_events = Event.all.past.paginate(page: params[:passed_page], per_page: 10).order('date DESC')
+    @coming_events = Event.all.upcoming.paginate(page: params[:upcoming_page], per_page: 10).order('date DESC')
     @from_events_controller = true
   end
 
