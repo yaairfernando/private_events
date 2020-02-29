@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
+  # respond_to :html, :json
+  # respond_to :html, :xml, :json
   def new
     @user = User.new
   end
@@ -21,6 +23,21 @@ class UsersController < ApplicationController
     @events = []
     @events = User.find(params[:id]).previous_events if params[:passed].present?
     @events = User.find(params[:id]).upcoming_events if params[:coming].present?
+    respond_to do |format|
+      format.json do
+        if request.xhr?
+          render :json => {:success => true, :html => (render_to_string("_events", :formats => [:html], :layout => false, :locals => {:events => @events})), data: @events}
+        end
+      end
+      # format.json { render :json => {:success => true, :html => (render_to_string("_events", :formats => [:html], :layout => false, :locals => {:events => @events}))} }
+      
+      # format.json { render :json => {:success => true, :html => (render_to_string partial: 'users/events')} }
+      # format.json { render :json => {:success => true, :html => (render_to_string partial: 'instruments')} }
+        # format.json { render :json => {:success => true, :html => (
+        #   render_to_string(:partial => "users/_events.html.erb", :formats => [:html], :layout => false, :locals => {:events => @events}))}}
+      format.html {  }
+    end
+    # byebug
   end
 
   def invited_events
