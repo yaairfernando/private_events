@@ -18,12 +18,12 @@
         "/packs/js/eventsasync-0b2c9d434c63b92de2d6.js.map"
       ]
     },
-    "hello": {
+    "messages": {
       "js": [
-        "/packs/js/hello-9c2edbf56cbd7b6ac948.js"
+        "/packs/js/messages-f5dc060d4e21e2f6c068.js"
       ],
       "js.map": [
-        "/packs/js/hello-9c2edbf56cbd7b6ac948.js.map"
+        "/packs/js/messages-f5dc060d4e21e2f6c068.js.map"
       ]
     },
     "script": {
@@ -33,22 +33,12 @@
       "js.map": [
         "/packs/js/script-93975912ed318bb49f64.js.map"
       ]
-    },
-    "user_greeting": {
-      "js": [
-        "/packs/js/user_greeting-e92fffdad3006cd39d3f.js"
-      ],
-      "js.map": [
-        "/packs/js/user_greeting-e92fffdad3006cd39d3f.js.map"
-      ]
     }
   },
   "eventsasync.js": "/packs/js/eventsasync-0b2c9d434c63b92de2d6.js",
   "eventsasync.js.map": "/packs/js/eventsasync-0b2c9d434c63b92de2d6.js.map",
-  "hello.js": "/packs/js/hello-9c2edbf56cbd7b6ac948.js",
-  "hello.js.map": "/packs/js/hello-9c2edbf56cbd7b6ac948.js.map",
+  "messages.js": "/packs/js/messages-f5dc060d4e21e2f6c068.js",
+  "messages.js.map": "/packs/js/messages-f5dc060d4e21e2f6c068.js.map",
   "script.js": "/packs/js/script-93975912ed318bb49f64.js",
-  "script.js.map": "/packs/js/script-93975912ed318bb49f64.js.map",
-  "user_greeting.js": "/packs/js/user_greeting-e92fffdad3006cd39d3f.js",
-  "user_greeting.js.map": "/packs/js/user_greeting-e92fffdad3006cd39d3f.js.map"
+  "script.js.map": "/packs/js/script-93975912ed318bb49f64.js.map"
 }
