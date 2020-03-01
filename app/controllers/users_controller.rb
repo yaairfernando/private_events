@@ -20,6 +20,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @my_events = @user.events.paginate(page: params[:page], per_page: 4).order('date DESC')
     @events = []
     @events = User.find(params[:id]).previous_events if params[:passed].present?
     @events = User.find(params[:id]).upcoming_events if params[:coming].present?

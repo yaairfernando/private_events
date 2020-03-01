@@ -1,6 +1,8 @@
 {
   "application.js": "/packs/js/application-25e577e2eeaa29639ee1.js",
   "application.js.map": "/packs/js/application-25e577e2eeaa29639ee1.js.map",
+  "counter_events.js": "/packs/js/counter_events-17ee2a66eb74547c60ea.js",
+  "counter_events.js.map": "/packs/js/counter_events-17ee2a66eb74547c60ea.js.map",
   "entrypoints": {
     "application": {
       "js": [
@@ -8,6 +10,14 @@
       ],
       "js.map": [
         "/packs/js/application-25e577e2eeaa29639ee1.js.map"
+      ]
+    },
+    "counter_events": {
+      "js": [
+        "/packs/js/counter_events-17ee2a66eb74547c60ea.js"
+      ],
+      "js.map": [
+        "/packs/js/counter_events-17ee2a66eb74547c60ea.js.map"
       ]
     },
     "eventsasync": {

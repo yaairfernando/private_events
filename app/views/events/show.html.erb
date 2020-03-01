@@ -37,7 +37,7 @@
   <% end %>
   <% if @event.invitations.where(accepted: true).any? %>
   <div class="people-attending-container">
-      <h4>People attending to this event:</h4>
+      <h2>People attending to this event:</h2>
       <% @event.invitations.where(accepted: true).each do |attendee| %>
         <span class="label label-primary"><%= attendee.attendee.name %> </span>
       <% end %>

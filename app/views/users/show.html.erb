@@ -1,4 +1,5 @@
 <%= javascript_pack_tag 'eventsasync' %>
+<%= javascript_pack_tag 'counter_events' %>
 <% provide(:title, @user.name) %>
 
 <div class="main_events">
@@ -10,9 +11,12 @@
       <% if @user.events.any? %>
         <br>
         <div class="user-event-details">
-          <span class="label label-success"><%= @user.events.count %> events in your dashboard!!</span>
+          <span class="label label-success"><span class="events_counter"><%= @user.events.count%></span> EVENTS IN YOUR DASHBOARD!!</span>
         </div>
-        <%= render @user.events %>
+        <div class="user_events_pagination">
+          <%= will_paginate @my_events %>
+        </div>
+        <%= render @my_events %>
       <% else %>
         <div class="create-event-container">
           <strong>You have no events!!!</strong>

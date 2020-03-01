@@ -216,12 +216,38 @@ aside {
   }
 }
 
+.create-event {
+  border: 2px solid #3273C5;
+  padding: 10px 10px;
+  width: 227px;
+  text-align: center;
+  display: inline-block;
+  transition: all 0.3s ease-in-out;
+  font-size: 16px;
+  font-weight: 500;
+
+  &:hover {
+    text-decoration: none;
+    cursor: pointer;
+    background-color: #3273C5;
+    color: #fff;
+  }
+}
+
+.start-event-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  flex-direction: column;
+}
+
 .main_events {
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
-  width: 1650px;
+  width: 1850px;
 
   .events-container {
     margin: 20px 0;
@@ -230,28 +256,20 @@ aside {
     
     .user-event-details {
       margin: 15px 0;
-    }
-    
-    .create-event {
-      border: 2px solid #3273C5;
-      padding: 10px 10px;
-      width: 227px;
-      text-align: center;
-      display: inline-block;
-      transition: all 0.3s ease-in-out;
-      font-size: 16px;
-      font-weight: 500;
 
-      &:hover {
-        text-decoration: none;
-        cursor: pointer;
-        background-color: #3273C5;
-        color: #fff;
+      span.label-success {
+        font-size: 12px;
       }
-      
-    
     }
 
+    .user_events_pagination {
+      text-align: center;
+
+      .pagination {
+        margin: 0;
+        margin-bottom: 10px;
+      }
+    }
     .btn {
       margin-top: 10px;
     }
@@ -285,7 +303,6 @@ aside {
     .date-start {
       text-align: center;
       font-size: 17px;
-      padding: 0 30px;
       display: flex;
       flex-direction: column;  
     }
@@ -475,9 +492,23 @@ aside {
           border-bottom: 1px solid #ccc;
           padding: 5px;
           color: #1C2331;
-          font-size: 17px;
+          font-size: 18px;
           margin: 0;
           text-align: justify;
+        }
+      }
+
+      .footer {
+        span {
+          a {
+            color: #fff;
+
+            &:hover {
+              cursor: pointer;
+              color: #fff;
+              text-decoration: none;
+            }
+          }
         }
       }
     }
@@ -509,7 +540,7 @@ aside {
   #passedEvents,
   #upcomingEvents {
     padding-top: 30px;
-    h4 {
+    h2 {
       margin-top: 20px;
     }
   }
@@ -540,7 +571,7 @@ aside {
   display: block;
   padding: 10px 0;
 
-  h4 {
+  h2 {
     margin-top: 0;
     margin-bottom: 10px;
   }
@@ -666,12 +697,21 @@ span.picture {
     transition: all 0.2s ease-in;
 
     &:hover {
-      border: 2px solid #1C2331;
       cursor: pointer;
       text-decoration: none;
       background-color: #fff;
       color: black;
     }
+  }
+
+  a:nth-child(1):hover {
+    border: 2px solid #1C2331;
+    padding: 3px 18px;
+  }
+
+  a:nth-child(2):hover {
+    padding: 3px 18px;
+    border: 2px solid #1C2331;
   }
 
   form {
