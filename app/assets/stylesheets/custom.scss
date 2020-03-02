@@ -377,6 +377,22 @@ aside {
   }
 }
 
+.dropzone {
+  padding: 30px;
+  border: dashed 1px #3273C5;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: all .2s ease-in-out;
+
+  &:hover {
+    border-color: rgb(81, 196, 81);
+    box-shadow: 1px 2px 4px #36c236, -1px -1px 4px #36c236;
+  }
+}
+
 // Header
 
 .invites-event {

@@ -1,0 +1,12 @@
+@import "dropzone/dist/min/dropzone.min.css";
+@import "dropzone/dist/min/basic.min.css";
+
+.dropzone {
+  padding: 30px;
+  border: dashed 1px #3273C5;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
