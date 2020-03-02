@@ -1057,6 +1057,11 @@ amdefine@>=0.0.4:
   resolved "https://registry.yarnpkg.com/amdefine/-/amdefine-1.0.1.tgz#4a5282ac164729e93619bcfd3ad151f817ce91f5"
   integrity sha1-SlKCrBZHKek2Gbz9OtFR+BfOkfU=
 
+animated-scroll-to@^2.0.5:
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/animated-scroll-to/-/animated-scroll-to-2.0.5.tgz#475fcf742ee38de0a969920182a6aaba319771b4"
+  integrity sha512-xDZY/geNZSJj99xftr8uAAJpp6k6yI8mdBNp8HM1LTwmeebaw4EjkHL8y0PtsuZg9/UG9tUNn2JqaZxEfzJxLw==
+
 ansi-colors@^3.0.0:
   version "3.2.4"
   resolved "https://registry.yarnpkg.com/ansi-colors/-/ansi-colors-3.2.4.tgz#e3a3da4bfbae6c86a9c285625de124a234026fbf"
@@ -2458,6 +2463,11 @@ dot-prop@^5.2.0:
   dependencies:
     is-obj "^2.0.0"
 
+dropzone@^5.7.0:
+  version "5.7.0"
+  resolved "https://registry.yarnpkg.com/dropzone/-/dropzone-5.7.0.tgz#8d1007f3ebcc6e6d64096823f854d898f7564ef2"
+  integrity sha512-kOltiZXH5cO/72I22JjE+w6BoT6uaVLfWdFMsi1PMKFkU6BZWpqRwjnsRm0o6ANGTBuZar5Piu7m/CbKqRPiYg==
+
 duplexify@^3.4.2, duplexify@^3.6.0:
   version "3.7.1"
   resolved "https://registry.yarnpkg.com/duplexify/-/duplexify-3.7.1.tgz#2a4df5317f6ccfd91f86d6fd25d8d8a103b88309"
@@ -3832,7 +3842,14 @@ jest-worker@^25.1.0:
     merge-stream "^2.0.0"
     supports-color "^7.0.0"
 
-jquery@^3.4.1:
+jquery-counter@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/jquery-counter/-/jquery-counter-1.0.2.tgz#b209217743b868ea6c6f8881111614b442121416"
+  integrity sha512-kyCxocT6Dx5WThDx2t9B8ru1AfRVZ68EGkuP7yjUrHMzlxrx6CmCMwtktYYUusWLqG+YrVESMkLOvBwrt4h5Tw==
+  dependencies:
+    jquery "^3.3.1"
+
+jquery@^3.3.1, jquery@^3.4.1:
   version "3.4.1"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.4.1.tgz#714f1f8d9dde4bdfa55764ba37ef214630d80ef2"
   integrity sha512-36+AdBzCL+y6qjw5Tx7HgzeGCzC81MDDgaUP8ld2zhx58HdqXGoBd+tHdrBMiyjGQs0Hxs/MLZTu/eHNJJuWPw==
