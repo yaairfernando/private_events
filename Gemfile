@@ -30,7 +30,6 @@ gem 'date_validator'
 gem 'font-awesome-rails'
 gem 'has_scope'
 gem 'hirb'
-gem 'jquery-rails'
 gem 'rails-controller-testing'
 gem 'time_difference'
 gem 'will_paginate'
@@ -46,6 +45,7 @@ group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'database_cleaner'
   gem 'rspec-rails', '~> 4.0.0.beta3'
+  gem 'faker'
 end
 
 group :development do

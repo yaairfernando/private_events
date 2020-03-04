@@ -2,7 +2,7 @@
 
 <div class="new-event-container">
   <h1>Create your new event!!!!</h1>
-  <%= form_for(@event) do |f| %>
+  <%= form_for(@event, local: true, multipart: true) do |f| %>
     <%= render 'shared/errors', obj: @event %>
     <div class="form-group" >
       <%= f.label :name, "Event Name" %>
@@ -22,6 +22,17 @@
     <div class="form-group" >
       <%= f.label :description %>
       <%= f.text_area :description, class: "form-control" %>
+    </div>
+
+    <div class="form-group" >
+      <%= f.label :image %>
+      <div class="dropzone dropzone-default dz-clickable" data-controller="dropzone" data-max-file-size="2" data-dropzone-max-files="1">
+        <%= f.file_field :image, class: "form-control", direct_upload: true, data: { target: "dropzone.input" } %>
+        <div class="dropzone-msg dz-message meedsclick text-gray-600">
+          <h3 class="dropzone-msg-title">Drag here the picture of your new event!!!</h3>
+          <span class="dropzone-msg-desc text-sm">2 MB file size maximum. Allowed files types jpg and png..</span>
+        </div>
+      </div>
     </div>
   
     <div class="form-group" >

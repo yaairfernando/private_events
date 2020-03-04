@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
     @user = User.find_by(email: params[:session][:email])
     if @user
       log_in @user
-      flash[:success] = 'Thanks for logging in to the Events site!!'
+      flash[:success] = 'Welcome back to your Private Events!!!'
       redirect_to @user
     else
       flash.now[:danger] = 'Check your email!'
@@ -21,7 +21,7 @@ class SessionsController < ApplicationController
 
   def destroy
     log_out if logged_in?
-    flash[:info] = 'You have logged out!!'
+    flash[:info] = 'Log in to create new events!!'
     redirect_to login_path
   end
 end

@@ -1,24 +1,54 @@
 {
-  "application.js": "/packs/js/application-6c66dc4b6743bcba5650.js",
-  "application.js.map": "/packs/js/application-6c66dc4b6743bcba5650.js.map",
+  "application.js": "/packs/js/application-7950a1e5331b92fa7536.js",
+  "application.js.map": "/packs/js/application-7950a1e5331b92fa7536.js.map",
+  "counter_events.js": "/packs/js/counter_events-c6df76c36fdb06ca0c46.js",
+  "counter_events.js.map": "/packs/js/counter_events-c6df76c36fdb06ca0c46.js.map",
   "entrypoints": {
     "application": {
       "js": [
-        "/packs/js/application-6c66dc4b6743bcba5650.js"
+        "/packs/js/application-7950a1e5331b92fa7536.js"
       ],
       "js.map": [
-        "/packs/js/application-6c66dc4b6743bcba5650.js.map"
+        "/packs/js/application-7950a1e5331b92fa7536.js.map"
+      ]
+    },
+    "counter_events": {
+      "js": [
+        "/packs/js/counter_events-c6df76c36fdb06ca0c46.js"
+      ],
+      "js.map": [
+        "/packs/js/counter_events-c6df76c36fdb06ca0c46.js.map"
+      ]
+    },
+    "eventsasync": {
+      "js": [
+        "/packs/js/eventsasync-9da44c7253cd87bf96b5.js"
+      ],
+      "js.map": [
+        "/packs/js/eventsasync-9da44c7253cd87bf96b5.js.map"
+      ]
+    },
+    "messages": {
+      "js": [
+        "/packs/js/messages-0517783938d5bb1b097e.js"
+      ],
+      "js.map": [
+        "/packs/js/messages-0517783938d5bb1b097e.js.map"
       ]
     },
     "script": {
       "js": [
-        "/packs/js/script-0824672df9e40682eb31.js"
+        "/packs/js/script-ccf0bb6fc4e546474525.js"
       ],
       "js.map": [
-        "/packs/js/script-0824672df9e40682eb31.js.map"
+        "/packs/js/script-ccf0bb6fc4e546474525.js.map"
       ]
     }
   },
-  "script.js": "/packs/js/script-0824672df9e40682eb31.js",
-  "script.js.map": "/packs/js/script-0824672df9e40682eb31.js.map"
+  "eventsasync.js": "/packs/js/eventsasync-9da44c7253cd87bf96b5.js",
+  "eventsasync.js.map": "/packs/js/eventsasync-9da44c7253cd87bf96b5.js.map",
+  "messages.js": "/packs/js/messages-0517783938d5bb1b097e.js",
+  "messages.js.map": "/packs/js/messages-0517783938d5bb1b097e.js.map",
+  "script.js": "/packs/js/script-ccf0bb6fc4e546474525.js",
+  "script.js.map": "/packs/js/script-ccf0bb6fc4e546474525.js.map"
 }
