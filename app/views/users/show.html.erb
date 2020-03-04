@@ -1,3 +1,5 @@
+<%= javascript_pack_tag 'eventsasync' %>
+<%= javascript_pack_tag 'counter_events' %>
 <% provide(:title, @user.name) %>
 
 <div class="main_events">
@@ -9,9 +11,12 @@
       <% if @user.events.any? %>
         <br>
         <div class="user-event-details">
-          <span class="label label-success"><%= @user.events.count %> events in your dashboard!!</span>
+          <span class="label label-success"><span class="events_counter"><%= @user.events.count%></span> EVENTS IN YOUR DASHBOARD!!</span>
         </div>
-        <%= render @user.events %>
+        <div class="user_events_pagination">
+          <%= will_paginate @my_events %>
+        </div>
+        <%= render @my_events %>
       <% else %>
         <div class="create-event-container">
           <strong>You have no events!!!</strong>
@@ -25,34 +30,13 @@
         </h1>
         <div>
           <h5>You have these events in your schedule!!</h5>
-          <div class="event-buttons">
-            <%= link_to 'Upcoming events', user_path(@user, params: { coming: 'true' }),
-                  method: :get, class: '' %>
-            <%= link_to 'Passed events', user_path(@user, params: { passed: 'true' }),
-                  method: :get, class: '' %> 
+          <div class="event-buttons" id='<% @user.id %>'>
+            <%= link_to 'Upcoming events', user_path(@user, params: { coming: 'true' }), class: "comming_request", :remote => true %>
+            <%= link_to 'Passed events', user_path(@user, params: { passed: 'true' }), class: "passed_request", :remote => true %>
           </div>
-          <% if @events.any? %>
-            <% @events.each do |e| %>
-              <div class="coming_and_passed_events">
-                <div class="header">
-                  <h2>
-                    <%= e.name %>
-                  </h2>
-                </div>
-                <div class="body">
-                  <p>
-                    <%= fa_icon "map-marker" %>
-                    <%= e.location %>
-                  </p>
-                  <span class="label label-success"><%= e.creator.name %> is hosting this event!!</span>
-                  <p class="description"><%= e.description %></p>
-                </div>
-                <div class="footer">
-                  <span class="label label-success"><%= e.date.strftime('%Y %B %d %I:%M%p') %></span>
-                </div>
-              </div>
-            <% end %>
-          <% end %>
+          <div class="content_custom_event">
+        
+          </div>
         </div>
       </section>
     </aside>

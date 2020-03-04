@@ -25,7 +25,7 @@
   <% if logged_in? && current_user.id == @event.creator_id %>
     <div class="dropdown" style="display:inline-block;">
       <% if User.where.not(id: [current_user.id] + Invitation.all.where(event_id: @event.id).pluck(:attendee_id)).count != 0%>
-        <button id="country-select-btn" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Invite A User
+        <button id="country-select-btn" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Invite people to your event
           <span class="caret"></span></button>
           <ul class="dropdown-menu">
             <% User.where.not(id: [current_user.id] + Invitation.all.where(event_id: @event.id).pluck(:attendee_id)).each do |user| %>
@@ -36,11 +36,11 @@
     </div>
   <% end %>
   <% if @event.invitations.where(accepted: true).any? %>
-    <h4>Currently attending:</h4>
-    <ul>
+  <div class="people-attending-container">
+      <h2>People attending to this event:</h2>
       <% @event.invitations.where(accepted: true).each do |attendee| %>
-        <li><%= attendee.attendee.name %></li>
+        <span class="label label-primary"><%= attendee.attendee.name %> </span>
       <% end %>
-    </ul>
+    </div>
   <% end %>
 </div>
