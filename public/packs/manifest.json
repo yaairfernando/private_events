@@ -1,15 +1,15 @@
 {
-  "application.js": "/packs/js/application-90efa1b1cfb97b8d5018.js",
-  "application.js.map": "/packs/js/application-90efa1b1cfb97b8d5018.js.map",
+  "application.js": "/packs/js/application-7950a1e5331b92fa7536.js",
+  "application.js.map": "/packs/js/application-7950a1e5331b92fa7536.js.map",
   "counter_events.js": "/packs/js/counter_events-c6df76c36fdb06ca0c46.js",
   "counter_events.js.map": "/packs/js/counter_events-c6df76c36fdb06ca0c46.js.map",
   "entrypoints": {
     "application": {
       "js": [
-        "/packs/js/application-90efa1b1cfb97b8d5018.js"
+        "/packs/js/application-7950a1e5331b92fa7536.js"
       ],
       "js.map": [
-        "/packs/js/application-90efa1b1cfb97b8d5018.js.map"
+        "/packs/js/application-7950a1e5331b92fa7536.js.map"
       ]
     },
     "counter_events": {
